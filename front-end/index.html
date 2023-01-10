@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS179G Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-3">
+        <form>
+
+          <!-- Points color-coding dropdown -->
+          <div class="mb-3">
+            <label class="form-label">Color-code by</label>
+            <select class="form-select">
+              <option value="price">Price</option>
+              <option value="reviews">Review sentiment</option>
+              <option value="rating">Avg. rating</option>
+              <option value="category">Category</option>
+            </select>
+          </div>
+
+          <!-- Filter by price point -->
+          <!-- TODO: let users specify a range -->
+          <div class="mb-3">
+            <label class="form-label">Filter by price point</label>
+            <select class="form-select">
+              <option value="$">$</option>
+              <option value="$$">$$</option>
+              <option value="$$$">$$$</option>
+              <option value="$$$$">$$$$</option>
+            </select>
+          </div>
+
+          <!-- Filter by ZIP code -->
+          <div class="mb-3">
+            <label class="form-label">Filter by ZIP code</label>
+            <input type="number" class="form-control">
+          </div>
+
+          <!-- Filter by business category -->
+          <!-- This needs to be a text input because there are so many business categories -->
+          <div class="mb-3">
+            <label class="form-label" id="category-filter">Filter by business category</label>
+            <input type="text" class="form-control">
+          </div>
+
+          <!-- Submit button -->
+          <!-- Clicking this button will cause the map interface to update -->
+          <button type="submit" class="btn btn-primary">Submit query</button>
+
+        </form>
+      </div>
+      <div class="col-6">
+
+        <!-- Map window -->
+        <div id="map"></div>
+
+      </div>
+
+      <!-- Additional business info -->
+      <div class="col-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Business details</h5>
+            <table class="table">
+              <caption>Click on a point on the map to view details</caption>
+              <tbody>
+                <tr>
+                  <th scope="col">Name</th>
+                  <td id="business-name"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Address</th>
+                  <td id="business-addr"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Rating</th>
+                  <td id="business-rating"></td>
+                </tr>
+                <tr>
+                  <th scope="row">Sentiment</th>
+                  <td id="business-sentiment"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script type="module" src="./main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
